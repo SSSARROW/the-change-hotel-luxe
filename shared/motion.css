@@ -1,0 +1,38 @@
+/* Shared motion for The Change Hotel sites. Everything here is skipped for visitors who prefer reduced motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* page-to-page fade (cross-document view transitions; ignored by browsers without support) */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: vt-out .28s ease both; }
+  ::view-transition-new(root) { animation: vt-in .5s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes vt-out { to { opacity: 0; } }
+  @keyframes vt-in { from { opacity: 0; } }
+
+  /* scroll reveal: motion.js marks elements with .rv-el and adds .in when they enter view */
+  .motion .rv-el {
+    opacity: 0;
+    translate: 0 30px;
+    transition: opacity 1s cubic-bezier(.2,.7,.2,1) var(--rd, 0ms), translate 1s cubic-bezier(.2,.7,.2,1) var(--rd, 0ms);
+  }
+  .motion .rv-el.in { opacity: 1; translate: 0 0; }
+
+  /* hero entrance */
+  .motion .hero-copy > *, .motion .hero-text > *, .motion .title > * {
+    animation: rise 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .motion .hero-copy > :nth-child(2), .motion .hero-text > :nth-child(2), .motion .title > :nth-child(2) { animation-delay: .12s; }
+  .motion .hero-copy > :nth-child(3), .motion .hero-text > :nth-child(3), .motion .title > :nth-child(3) { animation-delay: .24s; }
+  .motion .hero-copy > :nth-child(4) { animation-delay: .36s; }
+  .motion .hero .booking, .motion .bar-wrap, .motion .collage { animation: rise 1.1s .45s cubic-bezier(.2,.7,.2,1) both; }
+  .motion .hero .bg, .motion .right img { animation: settle 2.4s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes settle { from { scale: 1.08; } to { scale: 1; } }
+
+  /* hover polish */
+  a, button { transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease, opacity .3s ease, translate .3s ease; }
+  .btn:hover, .b:hover, .go:hover, .pill:hover, .call:hover, .book:hover, .card a:hover { translate: 0 -2px; }
+  .gal a, .gp-grid a, .gal-f a, .ggrid a { overflow: hidden; display: block; }
+  .gal a img, .gp-grid img, .gal-f img, .ggrid img, .doors img, .rv-av { transition: scale .9s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+  .gal a:hover img, .gp-grid a:hover img, .gal-f a:hover img, .ggrid a:hover img { scale: 1.06; }
+  .doors figure:hover img { scale: 1.03; }
+}
