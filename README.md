@@ -15,30 +15,29 @@ It is plain HTML, CSS and a little JavaScript. There is no build step and nothin
 
 You need nothing but a web browser.
 
-### Option 1: open the file
+### Option 1: run a local server (recommended)
 
 1. Download or clone this repo:
    ```bash
    git clone https://github.com/SSSARROW/the-change-hotel-luxe.git
    cd the-change-hotel-luxe
    ```
+2. Start a server from inside the project folder, using whichever you have:
+   ```bash
+   # Python 3
+   python3 -m http.server 8000
+
+   # or Node.js
+   npx serve .
+   ```
+3. Open <http://localhost:8000>. Press `Ctrl+C` in the terminal to stop the server.
+
+### Option 2: open the file directly
+
+1. Get the project folder (see Option 1 for the `git clone` command).
 2. Double-click `index.html`, or run `open index.html` (macOS) or `start index.html` (Windows).
 
-Most things work this way. The page-to-page fade needs a local server (Option 2), and the embedded map can behave differently when a page is opened straight from disk.
-
-### Option 2: run a local server (recommended)
-
-From inside the project folder, use whichever you have:
-
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# or Node.js
-npx serve .
-```
-
-Then open <http://localhost:8000>. Press `Ctrl+C` in the terminal to stop it.
+Most things work this way. The page-to-page fade needs a local server (Option 1), and the embedded map can behave differently when a page is opened straight from disk.
 
 ### Option 3: put it online
 
